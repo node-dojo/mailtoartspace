@@ -16,16 +16,17 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #030303;
+            background-color: #121212;
             color: #e0e0e0;
         }
 
         .container {
             width: 90%;
             max-width: 600px;
-            background: ##121212;
+            background: #1e1e1e;
             padding: 20px;
-            border-radius: 0px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
             text-align: center;
         }
 
@@ -38,7 +39,7 @@
         .image-container img {
             width: 100%;
             height: auto;
-            border-radius: 0px;
+            border-radius: 8px;
         }
 
         h2 {
@@ -58,10 +59,10 @@
             width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 2px solid #444;
+            border: 1px solid #444;
             border-radius: 4px;
             font-size: 14px;
-            background-color: #000000;
+            background-color: #2a2a2a;
             color: #e0e0e0;
         }
 
@@ -89,37 +90,45 @@
     </div>
 
     <div class="container">
+        <h2>Dear ArtSpace,</h2>
+
         <form id="emailForm">
             <label for="subject">Subject:</label>
-            <input type="text" id="subject" value="Save Gallery 13!!!">
+            <input type="text" id="subject" value="Save Gallery 13">
             
             <label for="body">Message:</label>
             <textarea id="body" rows="6">Dear Artspace Team,
 
 I am writing on behalf of my friend, Joe Bowers, who has been the tenant of Apartment 13 (or Gallery 13 as it has come to be called by the art community here). He has greatly valued the opportunity to be part of this vibrant community and, as is the intended mission of Artspace, done career-defining and important creative work while living there!
 
-We feel that the impending eviction is unjust and unfairly disruptive to his life and his creative projects!
-We and the rest of his friends, fans, and followers beg you to let him continue his work there!
+We feel that the impending eviction is unjust and due to what appears to be a clerical error involving his renewal contract.
 
-Please let me know what we can to do to ensure that Joe can keep his space and continue contributing to the artistic community both in Salt Lake and online. I am happy to provide additional information or assist in any way to resolve this matter promptly!
+This situation has caused undue stress and disruption to Joe’s life and his work.
+Please let me know the steps necessary to ensure Joe can retain his space and continue contributing to the artistic community both in Salt Lake and beyond. I am happy to provide additional information or assist in any way to resolve this matter promptly.
 
-Thank you for your time, attention, and understanding.</textarea>
+Thank you for your time, attention, and understanding. I look forward to hearing from you soon.</textarea>
             
             <label for="name">Sincerely,</label>
             <input type="text" id="name" placeholder="Your Full Name">
-            <input type="text" id="contact" placeholder="Your Title">
-            <input type="text" id="contact" placeholder="Additional Contact Information">
+            <input type="text" id="contact" placeholder="Your Contact Information">
             
             <button type="button" onclick="sendEmail()">Send Email</button>
+            <p id="clickCount">Emails Sent: 0</p>
         </form>
     </div>
 
     <script>
+        let clickCounter = 0;
         function sendEmail() {
             let subject = encodeURIComponent(document.getElementById("subject").value);
             let body = encodeURIComponent(document.getElementById("body").value + "\n\nSincerely,\n" + document.getElementById("name").value + "\n" + document.getElementById("contact").value);
-            let emailAddress = "annastasia@artspaceutah.org";
-            window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+            let emailAddress = "joe@cavemancreative.co";
+            let bccAddress = "joe@cavemancreative.co";
+            
+            window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}&bcc=${bccAddress}`;
+            
+            clickCounter++;
+            document.getElementById("clickCount").innerText = `Emails Sent: ${clickCounter}`;
         }
     </script>
 
