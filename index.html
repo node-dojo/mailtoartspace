@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Form</title>
+</head>
+<body>
+    <h2>Send a Pre-Written Email</h2>
+    <form id="emailForm">
+        <label for="subject">Subject:</label>
+        <input type="text" id="subject" value="Concerned Citizen's Message"><br><br>
+
+        <label for="body">Message:</label><br>
+        <textarea id="body" rows="5">Dear Representative, 
+
+I am writing to express my concern about...</textarea><br><br>
+
+        <button type="button" onclick="sendEmail()">Send Email</button>
+    </form>
+
+    <script>
+        function sendEmail() {
+            let subject = encodeURIComponent(document.getElementById("subject").value);
+            let body = encodeURIComponent(document.getElementById("body").value);
+            let emailAddress = "official@email.com";
+            window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
+        }
+    </script>
+</body>
+</html>
