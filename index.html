@@ -16,7 +16,7 @@
             align-items: center;
             justify-content: center;
             min-height: 100vh;
-            background-color: #121212;
+            background-color: #030303;
             color: #e0e0e0;
         }
 
@@ -25,8 +25,6 @@
             max-width: 600px;
             background: #1e1e1e;
             padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
             text-align: center;
         }
 
@@ -62,7 +60,7 @@
             border: 1px solid #444;
             border-radius: 4px;
             font-size: 14px;
-            background-color: #2a2a2a;
+            background-color: #030303;
             color: #e0e0e0;
         }
 
@@ -70,16 +68,17 @@
             margin-top: 15px;
             width: 100%;
             padding: 10px;
-            background: #007bff;
-            color: white;
+            background: #d8f70f;
+            color: black;
             border: none;
             border-radius: 4px;
             cursor: pointer;
             font-size: 16px;
         }
 
-        button:hover {
-            background: #0056b3;
+        button:hover {ß
+            background: white;
+            color: black
         }
     </style>
 </head>
@@ -90,7 +89,6 @@
     </div>
 
     <div class="container">
-        <h2>Dear ArtSpace,</h2>
 
         <form id="emailForm">
             <label for="subject">Subject:</label>
@@ -113,7 +111,7 @@ Thank you for your time, attention, and understanding. I look forward to hearing
             <input type="text" id="contact" placeholder="Your Contact Information">
             
             <button type="button" onclick="sendEmail()">Send Email</button>
-            <p id="clickCount">Emails Sent: 0</p>
+
         </form>
     </div>
 
@@ -122,7 +120,7 @@ Thank you for your time, attention, and understanding. I look forward to hearing
         function sendEmail() {
             let subject = encodeURIComponent(document.getElementById("subject").value);
             let body = encodeURIComponent(document.getElementById("body").value + "\n\nSincerely,\n" + document.getElementById("name").value + "\n" + document.getElementById("contact").value);
-            let emailAddress = "joe@cavemancreative.co";
+            let emailAddress = "annastasia@artspaceutah.org";
             let bccAddress = "joe@cavemancreative.co";
             
             window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}&bcc=${bccAddress}`;
