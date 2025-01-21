@@ -3,29 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Email Form</title>
+    <title>Email ArtSpace</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        h2 {
+            font-size: 15pt;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        textarea::placeholder {
+            color: gray;
+            font-style: italic;
+        }
+
+        button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
 </head>
 <body>
-    <h2>Send a Pre-Written Email</h2>
-    <form id="emailForm">
-        <label for="subject">Subject:</label>
-        <input type="text" id="subject" value="Concerned Citizen's Message"><br><br>
 
-        <label for="body">Message:</label><br>
-        <textarea id="body" rows="5">Dear Representative, 
+    <h2>Dear ArtSpace,</h2>
 
-I am writing to express my concern about...</textarea><br><br>
+    <div class="container">
+        <form id="emailForm">
+            <label for="subject">Subject:</label>
+            <input type="text" id="subject" value="Save Gallery 13">
 
-        <button type="button" onclick="sendEmail()">Send Email</button>
-    </form>
+            <label for="body">Message:</label>
+            <textarea id="body" rows="6" placeholder="Tell them why you think I should be allowed to keep my home and workspace! So that I may continue to do my work and not be totally disrupted and made homeless!!"></textarea>
+
+            <button type="button" onclick="sendEmail()">Send Email</button>
+        </form>
+    </div>
 
     <script>
         function sendEmail() {
             let subject = encodeURIComponent(document.getElementById("subject").value);
             let body = encodeURIComponent(document.getElementById("body").value);
-            let emailAddress = "official@email.com";
+            let emailAddress = "official@email.com"; // Replace with the actual email address
             window.location.href = `mailto:${emailAddress}?subject=${subject}&body=${body}`;
         }
     </script>
+
 </body>
 </html>
